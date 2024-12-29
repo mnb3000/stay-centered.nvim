@@ -2,6 +2,7 @@ local M = {}
 
 M.cfg = {
 	skip_filetypes = {},
+	include_filetypes = {}, -- activate only on specified filetypes if set
 	enabled = true, -- takes precedence over `active`
 	active = true, -- for internally disabling plugin behavior
 	allow_scroll_move = true,
@@ -14,6 +15,7 @@ M.setup = function(ctx)
 	end
 
 	M.cfg.skip_filetypes = ctx.skip_filetypes or {}
+	M.cfg.include_filetypes = ctx.include_filetypes or {}
 	if type(ctx.enabled) == "boolean" then
 		M.cfg.enabled = ctx.enabled
 	end
